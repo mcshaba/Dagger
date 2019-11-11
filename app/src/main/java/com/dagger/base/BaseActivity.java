@@ -29,8 +29,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private static String INSTANCE_ID_KEY = "instance_id";
 
     @Inject ScreenInjector screenInjector;
-    @Inject
-    ScreenNavigator screenNavigator;
+    @Inject ScreenNavigator screenNavigator;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

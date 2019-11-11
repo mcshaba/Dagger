@@ -22,12 +22,19 @@ public class MyApplication extends Application {
         super.onCreate();
 
         //reference applicationModule at build time
-        component = DaggerApplicationComponent.builder().applicationModule(new ApplicationModule(this)).build();
+        component = initComponent();
         component.inject(this);
 
         if(BuildConfig.DEBUG){
             Timber.plant(new Timber.DebugTree());
         }
+    }
+
+    protected ApplicationComponent initComponent(){
+        return DaggerApplicationComponent.builder()
+                .applicationModule(new ApplicationModule(this))
+                .build();
+
     }
 
     public ActivityInjector getActivityInjector() {
